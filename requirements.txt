@@ -1,0 +1,16 @@
+langchain
+langchain_community
+langchain-huggingface
+langchain-google-genai
+langgraph
+
+GoogleNews
+yfinance
+newsapi-python
+praw
+
+python-dotenv
+
+
+streamlit
+
