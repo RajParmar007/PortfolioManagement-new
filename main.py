@@ -22,6 +22,8 @@ DATA_DIR = "data"
 CACHE_EXPIRY_HOURS = 24
 
 
+# --- UTILS ---
+
 def save_json(filename, data):
     os.makedirs(DATA_DIR, exist_ok=True)
     path = os.path.join(DATA_DIR, filename)
@@ -51,7 +53,7 @@ def load_json(filename):
 
 
 
-
+# --- MAIN WORKFLOW ---
 
 if __name__ == "__main__":
     shortlist = shortlist_sector("Technology", top_n=15)
@@ -131,6 +133,9 @@ if __name__ == "__main__":
         save_json(f"{ticker}_sentiment.json", sentiment_result)
         print("\n[INFO] Sentiment analysis completed.\n")
         print(json.dumps(sentiment_results, indent=2))
+
+
+    
 
 
         
