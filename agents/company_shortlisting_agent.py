@@ -48,7 +48,7 @@ def fetch_sector_data(sector: str, count: int = 50):
     if all(os.path.exists(p) for p in [summary_path, stats_path, hist_path]):
         mtime = datetime.fromtimestamp(os.path.getmtime(summary_path))
         if datetime.now() - mtime < timedelta(hours=CACHE_EXPIRY_HOURS):
-            print(f"✅ Using cached data for {sector}")
+            print(f"Using cached data for {sector}")
             return summary_path, stats_path, hist_path
 
     print(f"📡 Fetching fresh data for {sector}...")
@@ -57,7 +57,7 @@ def fetch_sector_data(sector: str, count: int = 50):
     s = Screener()
     screen = s.get_screeners(screener_id, count=count)
     quotes = screen[screener_id].get("quotes", [])
-    screener_df = pd.DataFrame(quotes)[["symbol", "shortName"]]  # ✅ keep names
+    screener_df = pd.DataFrame(quotes)[["symbol", "shortName"]]  # keep names
     symbols = screener_df["symbol"].tolist()
 
     # Step 2: Pull data in bulk with Ticker
@@ -67,7 +67,7 @@ def fetch_sector_data(sector: str, count: int = 50):
     stats = pd.DataFrame(t.key_stats).T.reset_index().rename(columns={"index": "symbol"})
     history = t.history(period="6mo", interval="1d").reset_index()
 
-    # ✅ Merge names into summary
+    # Merge names into summary
     summary = summary.merge(screener_df, on="symbol", how="left")
 
     # Step 3: Save locally
@@ -75,7 +75,7 @@ def fetch_sector_data(sector: str, count: int = 50):
     stats.to_csv(stats_path, index=False)
     history.to_csv(hist_path, index=False)
 
-    print(f"💾 Data cached for {sector}: {len(symbols)} symbols")
+    print(f"Data cached for {sector}: {len(symbols)} symbols")
 
     return summary_path, stats_path, hist_path
 
@@ -132,7 +132,7 @@ def shortlist_sector(sector: str, top_n: int = 15):
 # --------------------------
 # DEMO RUN
 # --------------------------
-if __name__ == "__main__":
-    # First run fetches data, later runs use cache
-    shortlist = shortlist_sector("Technology", top_n=15)
-    print(json.dumps(shortlist, indent=2))
+# if __name__ == "__main__":
+#     # First run fetches data, later runs use cache
+#     shortlist = shortlist_sector("Technology", top_n=15)
+#     print(json.dumps(shortlist, indent=2))
