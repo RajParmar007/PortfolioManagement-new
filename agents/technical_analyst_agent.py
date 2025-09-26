@@ -20,7 +20,6 @@ REDDIT_CLIENT_SECRET = os.getenv("REDDIT_CLIENT_SECRET")
 REDDIT_USER_AGENT = os.getenv("REDDIT_USER_AGENT")
 
 
-from llms import llm
 
 
 def _ensure_df(data: Any) -> pd.DataFrame:

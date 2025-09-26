@@ -16,7 +16,6 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 load_dotenv()
 
-from llms import llm
 
 DATA_DIR = "data"
 CACHE_EXPIRY_HOURS = 24
@@ -50,26 +49,39 @@ def load_json(filename):
 
 
 
-
-
-
 # --- MAIN WORKFLOW ---
 
 if __name__ == "__main__":
     shortlist = shortlist_sector("Technology", top_n=15)
     companies = json.loads(json.dumps(shortlist, indent=2))
 
-    top_companies = [c['symbol'] for c in companies][:1]
-    print(f"[INFO] Top 1 company selected: {top_companies}\n")
+    top_companies = [c['symbol'] for c in companies][:3]
+    print(f"[INFO] Top 3 company selected: {top_companies}\n")
 
     ingestion_data = {}
     for ticker in top_companies:
-        print(f"[INFO] Fetching data for {ticker}...\n")
+
 
         # Call underlying functions
-        stock_data = get_stock_data.func(ticker)
-        if stock_data.startswith("{"):
-            stock_data = json.loads(stock_data)
+        # stock_data = get_stock_data.func(ticker)
+        # if stock_data.startswith("{"):
+        #     stock_data = json.loads(stock_data)
+
+        print(f"[INFO] Fetching data for {ticker}...\n")
+
+        # --- Caching logic for stock data ---
+        stock_data = load_json(f"{ticker}_stock_data.json")
+        if not stock_data:
+            print(f"[INFO] No cache for {ticker} stock data. Calling API...")
+            # Call underlying function
+            stock_data_raw = get_stock_data.func(ticker)
+            if stock_data_raw.startswith("{"):
+                stock_data = json.loads(stock_data_raw)
+            else:
+                stock_data = {} # or handle error appropriately
+            save_json(f"{ticker}_stock_data.json", stock_data)
+
+
 
         news_data = get_market_news.func(ticker)
         reddit_data = get_reddit_posts.func(ticker)
@@ -86,9 +98,9 @@ if __name__ == "__main__":
             "news": news_data,
             "reddit": reddit_data,
         }
-
-    print("\n=== FINAL INGESTION DATA ===")
-    print(json.dumps(ingestion_data, indent=2))
+        save_json(f"{ticker}_stock_data.json", stock_data)
+    # print("\n=== FINAL INGESTION DATA ===")
+    # print(json.dumps(ingestion_data, indent=2))
 
 
 
@@ -108,8 +120,8 @@ if __name__ == "__main__":
         tech_result = technical_indicators.invoke(input=tech_input)
         technical_results[ticker] = tech_result
         save_json(f"{ticker}_technical.json", tech_result)
-    print("\n[INFO] Technical analysis completed.\n")
-    print(json.dumps(technical_results, indent=2))
+    # print("\n[INFO] Technical analysis completed.\n")
+    # print(json.dumps(technical_results, indent=2))
 
 
 
@@ -131,11 +143,28 @@ if __name__ == "__main__":
         sentiment_result = sentiment_analysis.invoke(input=sentiment_input)
         sentiment_results[ticker] = sentiment_result
         save_json(f"{ticker}_sentiment.json", sentiment_result)
-        print("\n[INFO] Sentiment analysis completed.\n")
-        print(json.dumps(sentiment_results, indent=2))
+        # print("\n[INFO] Sentiment analysis completed.\n")
+        # print(json.dumps(sentiment_results, indent=2))
 
+
+    # Create a dictionary of dictionaries to hold all the results for each company
+    final_results = {}
+    for ticker in top_companies: 
+        final_results[ticker] = {
+            "technical_analysis" : technical_results.get(ticker, {}),
+            "sentiment_analysis" : sentiment_results.get(ticker, {}),   
+            
+            #temporary placeholder for prediction analysis
+            "prediction_analysis" : {"prediction": "N/A", "reasoning": "N/A"}
+        }
 
     
 
+    # --- PORTFOLIO MANAGEMENT / RECOMMENDATION ---
+    from agents.portfolio_manager_agent import give_stock_recommendation
+    recommendation = give_stock_recommendation.invoke({"final_results": final_results})
+
+    print("\n=== FINAL RECOMMENDATION ===")
+    print(recommendation)
 
         
