@@ -7,6 +7,7 @@ from newsapi import NewsApiClient
 from dotenv import load_dotenv
 
 
+
 # Load environment variables
 load_dotenv()
 
@@ -19,43 +20,156 @@ REDDIT_USER_AGENT = os.getenv("REDDIT_USER_AGENT")
 
 
 # ---------- STOCK DATA ----------
+# @tool("get_stock_data", return_direct=False)
+# def get_stock_data(ticker: str) -> str:
+#     """
+#     Fetches daily stock data for the given ticker (last 3 years).
+#     Uses Alpha Vantage TIME_SERIES_DAILY with full output size, then slices 3 years.
+#     """
+#     try:
+#         if not ALPHA_VANTAGE_API_KEY:
+#             return "Error: ALPHA_VANTAGE_API_KEY not set in environment."
+
+#         url = (
+#             f"https://www.alphavantage.co/query?"
+#             f"function=TIME_SERIES_DAILY&symbol={ticker}"
+#             f"&outputsize=full&apikey={ALPHA_VANTAGE_API_KEY}"
+#         )
+#         response = requests.get(url)
+#         data = response.json()
+
+#         if "Time Series (Daily)" not in data:
+#             return f"Error fetching data for {ticker}: {data.get('Note') or data.get('Error Message') or 'Unknown error'}"
+
+#         ts_data = data["Time Series (Daily)"]
+
+#         # Convert to DataFrame
+#         df = pd.DataFrame(ts_data).T
+#         df.index = pd.to_datetime(df.index)
+#         df.columns = ["open", "high", "low", "close", "volume"]
+#         df = df.astype(float)
+#         df = df.sort_index(ascending=False)  # latest first
+
+#         # Keep ~3 years (≈ 750 trading days)
+#         df = df.head(750)
+
+#         return df.to_json(orient="index")
+
+#     except Exception as e:
+#         return f"Error fetching stock data: {str(e)}"
+
+
+import pandas as pd
+import numpy as np
+import requests
+import os
+
+# It's good practice to get the API key from environment variables
+ALPHA_VANTAGE_API_KEY = os.getenv("ALPHA_VANTAGE_API_KEY")
+
+def calculate_all_features(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Calculates a comprehensive set of technical analysis features from an OHLCV DataFrame.
+    
+    Args:
+        df: A pandas DataFrame with 'open', 'high', 'low', 'close', 'volume' columns
+            and a DatetimeIndex, sorted in chronological order (oldest to newest).
+            
+    Returns:
+        The original DataFrame with all the feature columns added.
+    """
+    
+    # -- Trend Indicators --
+    df['SMA_20'] = df['close'].rolling(window=20).mean()
+    df['SMA_50'] = df['close'].rolling(window=50).mean()
+    df['EMA_12'] = df['close'].ewm(span=12, adjust=False).mean()
+    ema_26 = df['close'].ewm(span=26, adjust=False).mean()
+    df['MACD'] = df['EMA_12'] - ema_26
+    df['MACD_Signal'] = df['MACD'].ewm(span=9, adjust=False).mean()
+    df['MACD_Hist'] = df['MACD'] - df['MACD_Signal']
+
+    # -- Momentum Indicators --
+    delta = df['close'].diff(1)
+    gain = delta.where(delta > 0, 0)
+    loss = -delta.where(delta < 0, 0)
+    avg_gain = gain.ewm(com=14 - 1, min_periods=14).mean()
+    avg_loss = loss.ewm(com=14 - 1, min_periods=14).mean()
+    rs = avg_gain / avg_loss
+    df['RSI_14'] = 100 - (100 / (1 + rs))
+    df['ROC_10'] = df['close'].pct_change(periods=10) * 100
+    df['MOM_10'] = df['close'].diff(periods=10)
+
+    # -- Volatility Indicators --
+    high_low = df['high'] - df['low']
+    high_close = np.abs(df['high'] - df['close'].shift())
+    low_close = np.abs(df['low'] - df['close'].shift())
+    tr = pd.concat([high_low, high_close, low_close], axis=1).max(axis=1)
+    df['ATR'] = tr.ewm(span=14, adjust=False).mean()
+    
+    std_20 = df['close'].rolling(window=20).std()
+    df['BB_Upper'] = df['SMA_20'] + (std_20 * 2)
+    df['BB_Lower'] = df['SMA_20'] - (std_20 * 2)
+    df['BB_Position'] = (df['close'] - df['BB_Lower']) / (df['BB_Upper'] - df['BB_Lower'])
+    
+    # -- Volume Indicators --
+    df['Volume_Ratio'] = df['volume'] / df['volume'].rolling(window=20).mean()
+
+    # -- Other Derived Features --
+    df['Returns_1d'] = df['close'].pct_change(periods=1)
+    df['Returns_5d'] = df['close'].pct_change(periods=5)
+    df['Volatility_20d'] = df['Returns_1d'].rolling(window=20).std()
+    df['Close_to_SMA20'] = (df['close'] - df['SMA_20']) / df['SMA_20']
+    df['Close_to_SMA50'] = (df['close'] - df['SMA_50']) / df['SMA_50']
+    
+    # Drop intermediate columns not requested in the final feature list
+    df = df.drop(columns=['MACD_Signal'])
+    
+    return df
+
 @tool("get_stock_data", return_direct=False)
 def get_stock_data(ticker: str) -> str:
     """
-    Fetches daily stock data for the given ticker (last 3 years).
-    Uses Alpha Vantage TIME_SERIES_DAILY with full output size, then slices 3 years.
+    Fetches daily stock data (price, volume) and calculates a comprehensive
+    set of technical indicators.
     """
     try:
         if not ALPHA_VANTAGE_API_KEY:
             return "Error: ALPHA_VANTAGE_API_KEY not set in environment."
 
-        url = (
-            f"https://www.alphavantage.co/query?"
-            f"function=TIME_SERIES_DAILY&symbol={ticker}"
-            f"&outputsize=full&apikey={ALPHA_VANTAGE_API_KEY}"
+        # 1. Fetch Base Stock Data
+        price_url = (
+            f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY"
+            f"&symbol={ticker}&outputsize=full&apikey={ALPHA_VANTAGE_API_KEY}"
         )
-        response = requests.get(url)
-        data = response.json()
+        price_response = requests.get(price_url)
+        price_data = price_response.json()
+        if "Time Series (Daily)" not in price_data:
+            return f"Error fetching price data for {ticker}: {price_data.get('Note') or price_data.get('Error Message') or 'Unknown error'}"
 
-        if "Time Series (Daily)" not in data:
-            return f"Error fetching data for {ticker}: {data.get('Note') or data.get('Error Message') or 'Unknown error'}"
-
-        ts_data = data["Time Series (Daily)"]
-
-        # Convert to DataFrame
-        df = pd.DataFrame(ts_data).T
+        df = pd.DataFrame(price_data["Time Series (Daily)"]).T
         df.index = pd.to_datetime(df.index)
         df.columns = ["open", "high", "low", "close", "volume"]
         df = df.astype(float)
-        df = df.sort_index(ascending=False)  # latest first
+        
+        # 2. Calculate All Features
+        # Data must be in chronological order for calculation
+        df = df.sort_index(ascending=True)
+        df = calculate_all_features(df)
 
-        # Keep ~3 years (≈ 750 trading days)
-        df = df.head(750)
+        # 3. Final Processing
+        df = df.sort_index(ascending=False)  # latest first
+        df = df.head(750)  # Keep ~3 years of data
+        # Round the data for cleaner JSON output
+        df = df.round(4)
+        df = df.fillna("N/A") 
 
         return df.to_json(orient="index")
 
     except Exception as e:
-        return f"Error fetching stock data: {str(e)}"
+        return f"An error occurred: {str(e)}"
+
+
+
 
 
 # ---------- NEWS ----------

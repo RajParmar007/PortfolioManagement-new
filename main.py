@@ -137,7 +137,9 @@ if __name__ == "__main__":
                 news_items.append({"title": title.strip(), "url": url.strip()})
         
     # Process reddit data into a list of dictionaries
-        reddit_posts = [{"title": post.strip()} for post in data['reddit'].strip().split("\n") if post.strip()]
+        reddit_posts = []
+        if isinstance(data['reddit'], list):
+            reddit_posts = [{"title": post.strip()} for post in data['reddit'] if isinstance(post, str) and post.strip()]
 
         sentiment_input = {"input": {"ticker": ticker, "news": news_items, "reddit": reddit_posts}}
         sentiment_result = sentiment_analysis.invoke(input=sentiment_input)
