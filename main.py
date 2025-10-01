@@ -28,7 +28,7 @@ def save_json(filename, data):
     path = os.path.join(DATA_DIR, filename)
     with open(path, "w") as f:
         json.dump(data, f, indent=2)
-    print(f"[INFO] Saved data to {path}")
+    #print(f"[INFO] Saved data to {path}")
     return path
 
 def load_json(filename):
@@ -36,7 +36,7 @@ def load_json(filename):
     if os.path.exists(path):
         with open(path, "r") as f:
             data = json.load(f)
-        print(f"[INFO] Loaded cached data from {path}")
+        #print(f"[INFO] Loaded cached data from {path}")
         return data
     return None
 
@@ -149,24 +149,54 @@ if __name__ == "__main__":
         # print(json.dumps(sentiment_results, indent=2))
 
 
+    # --- PREDICTION ANALYSIS ---
+    from agents.prediction_agent import get_stock_prediction
+    prediction_results = {}
+    for ticker in top_companies:
+        print(f"[INFO] Running prediction analysis for {ticker}...")
+        prediction_result = get_stock_prediction.func(ticker)
+        prediction_results[ticker] = prediction_result
+        save_json(f"{ticker}_prediction.json", prediction_result)
+
+
     # Create a dictionary of dictionaries to hold all the results for each company
     final_results = {}
     for ticker in top_companies: 
         final_results[ticker] = {
             "technical_analysis" : technical_results.get(ticker, {}),
             "sentiment_analysis" : sentiment_results.get(ticker, {}),   
+            "prediction_analysis" : prediction_results.get(ticker, {}),
             
-            #temporary placeholder for prediction analysis
-            "prediction_analysis" : {"prediction": "N/A", "reasoning": "N/A"}
         }
 
     
+
+
+
 
     # --- PORTFOLIO MANAGEMENT / RECOMMENDATION ---
     from agents.portfolio_manager_agent import give_stock_recommendation
     recommendation = give_stock_recommendation.invoke({"final_results": final_results})
 
+    print(final_results)
+
     print("\n=== FINAL RECOMMENDATION ===")
     print(recommendation)
+
+
+
+# 2. Print the result
+    print(recommendation.content)
+
+    # # Printing only the AI output
+    # if "Error in give_stock_recommendation" in recommendation:
+    #     print(recommendation)
+    # else:
+    #     # Extracting only the relevant part using AIMessage format
+    #     chat_message = ChatGoogleGenerativeAI._convert_to_message(recommendation)
+    #     if isinstance(chat_message, HumanMessage):
+    #         print(chat_message.content)
+
+
 
         

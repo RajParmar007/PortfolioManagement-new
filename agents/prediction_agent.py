@@ -58,7 +58,7 @@ def get_stock_prediction(ticker: str) -> str:
             
             # Gracefully handle cases where a model for the ticker doesn't exist
             if not os.path.exists(MODEL_PATH) or not os.path.exists(SCALER_PATH):
-                return f"Error: No prediction model is available for the ticker '{ticker}'."
+                return f"Error: No prediction model is available for the ticker '{ticker}'. Do not consider prediction model scores for this ticker. Use other analyses instead."
             
             # Load Model
             model_data = torch.load(MODEL_PATH, map_location=device)
@@ -137,12 +137,12 @@ def get_stock_prediction(ticker: str) -> str:
     except Exception as e:
         return f"An unexpected error occurred for ticker '{ticker}': {e}"
 
-# # Example of how to use the tool
-if __name__ == '__main__':
-    # Make sure you have the required files in the correct directories
-    # e.g., external_utils/AVGO_balanced_lstm.pth, data/AVGO_stock_data.json, etc.
-    prediction_result = get_stock_prediction("AVGO")
-    print(prediction_result)
-    # Example for a ticker that doesn't have a model
-    prediction_result_fake = get_stock_prediction("FAKETICKER")
-    print(prediction_result_fake)
+# # # Example of how to use the tool
+# if __name__ == '__main__':
+#     # Make sure you have the required files in the correct directories
+#     # e.g., external_utils/AVGO_balanced_lstm.pth, data/AVGO_stock_data.json, etc.
+#     prediction_result = get_stock_prediction("AVGO")
+#     print(prediction_result)
+#     # Example for a ticker that doesn't have a model
+#     prediction_result_fake = get_stock_prediction("FAKETICKER")
+#     print(prediction_result_fake)
