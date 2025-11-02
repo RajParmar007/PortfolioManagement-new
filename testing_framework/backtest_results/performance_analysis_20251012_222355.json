@@ -1,0 +1,110 @@
+{
+  "analysis_info": {
+    "source_file": "testing_framework/backtest_results\\consolidated_rule_based_backtests_20251012_221859.json",
+    "analysis_timestamp": "2025-10-12T22:23:55.236742",
+    "total_backtests": 10,
+    "method": "rule_based"
+  },
+  "performance_metrics": {
+    "basic_metrics": {
+      "total_recommendations": 30,
+      "buy_recommendations": 12,
+      "sell_recommendations": 6,
+      "hold_recommendations": 12,
+      "buy_percentage": 40.0,
+      "sell_percentage": 20.0,
+      "hold_percentage": 40.0,
+      "average_return": 2.246484555713468,
+      "total_return": 67.39453667140404,
+      "positive_returns": 18,
+      "negative_returns": 12,
+      "win_rate": 60.0
+    },
+    "accuracy_metrics": {
+      "overall_accuracy": 36.666666666666664,
+      "correct_predictions": 11,
+      "total_predictions": 30,
+      "buy_accuracy": 58.333333333333336,
+      "sell_accuracy": 50.0,
+      "hold_accuracy": 8.333333333333332,
+      "buy_correct": 7,
+      "buy_total": 12,
+      "sell_correct": 3,
+      "sell_total": 6,
+      "hold_correct": 1,
+      "hold_total": 12
+    },
+    "return_metrics": {
+      "average_return": 2.246484555713468,
+      "median_return": 2.613519500180905,
+      "std_return": 8.285527509926034,
+      "min_return": -14.582639714625445,
+      "max_return": 16.572934083194006,
+      "strategy_average_return": 2.1212932620962226,
+      "strategy_total_return": 63.638797862886676,
+      "benchmark_average_return": 2.246484555713468,
+      "benchmark_total_return": 67.39453667140404,
+      "excess_return": -0.12519129361724524,
+      "cumulative_strategy_return": 63.638797862886676,
+      "cumulative_benchmark_return": 67.39453667140404,
+      "outperformance": -3.755738808517364
+    },
+    "risk_metrics": {
+      "sharpe_ratio": 0.3281766144064026,
+      "volatility": 0.2063225973144366,
+      "max_drawdown": -0.21982756483595797,
+      "strategy_std": 0.05956020354969637,
+      "downside_deviation": 0.03148469776964402,
+      "upside_deviation": 0.049553359483532525,
+      "var_95": -0.06425273933435824,
+      "cvar_95": -0.08849682215875504
+    },
+    "portfolio_metrics": {
+      "portfolio_average_return": 2.246484555713468,
+      "portfolio_total_return": 22.46484555713468,
+      "portfolio_volatility": 7.015374764054461,
+      "portfolio_sharpe": 0.3199854554526226,
+      "best_portfolio_return": 15.556383577752765,
+      "worst_portfolio_return": -10.598414844689364,
+      "portfolio_win_rate": 70.0
+    },
+    "detailed_analysis": {
+      "AAPL": {
+        "total_recommendations": 10,
+        "average_return": 1.0516550548080343,
+        "total_return": 10.516550548080343,
+        "volatility": 7.222372219385959,
+        "min_return": -9.260396255170916,
+        "max_return": 14.572094396970067,
+        "win_rate": 50.0,
+        "buy_count": 5,
+        "sell_count": 0,
+        "hold_count": 5
+      },
+      "AMZN": {
+        "total_recommendations": 10,
+        "average_return": 1.011360231492843,
+        "total_return": 10.11360231492843,
+        "volatility": 7.888755298746738,
+        "min_return": -14.582639714625445,
+        "max_return": 15.524122253094225,
+        "win_rate": 50.0,
+        "buy_count": 5,
+        "sell_count": 2,
+        "hold_count": 3
+      },
+      "ADBE": {
+        "total_recommendations": 10,
+        "average_return": 4.676438380839526,
+        "total_return": 46.764383808395266,
+        "volatility": 9.093786477018273,
+        "min_return": -12.288782636994023,
+        "max_return": 16.572934083194006,
+        "win_rate": 80.0,
+        "buy_count": 2,
+        "sell_count": 4,
+        "hold_count": 4
+      }
+    }
+  }
+}

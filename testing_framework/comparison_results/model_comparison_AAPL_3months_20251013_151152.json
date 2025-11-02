@@ -1,0 +1,88 @@
+{
+  "comparison_info": {
+    "ticker": "AAPL",
+    "period_months": 3,
+    "initial_capital": 10000,
+    "timestamp": "2025-10-13T15:11:52.456423"
+  },
+  "performance_metrics": {
+    "AI_Model": {
+      "total_return": -6.2477900787179825,
+      "annualized_return": -42.91407856850022,
+      "volatility": 26.88325104693351,
+      "sharpe_ratio": -1.5963128303782776,
+      "max_drawdown": -13.209838633297089,
+      "win_rate": 46.15384615384615,
+      "calmar_ratio": -3.2486451772643004,
+      "total_trades": 26,
+      "winning_trades": 12,
+      "final_portfolio_value": 9375.220992128201,
+      "profit_loss": -624.779007871799
+    },
+    "RSI": {
+      "total_return": 0.7789124949558888,
+      "annualized_return": 6.974742377448218,
+      "volatility": 5.994309216795937,
+      "sharpe_ratio": 1.1635606581497542,
+      "max_drawdown": -1.4196069326518912,
+      "win_rate": 44.44444444444444,
+      "calmar_ratio": 4.913150405950101,
+      "total_trades": 9,
+      "winning_trades": 4,
+      "final_portfolio_value": 10077.89124949559,
+      "profit_loss": 77.89124949558936
+    },
+    "MACD": {
+      "total_return": -6.844095390296455,
+      "annualized_return": -45.99314538709578,
+      "volatility": 27.000694038705003,
+      "sharpe_ratio": -1.7034060428656184,
+      "max_drawdown": -15.6388211311519,
+      "win_rate": 37.93103448275862,
+      "calmar_ratio": -2.9409598716797962,
+      "total_trades": 29,
+      "winning_trades": 11,
+      "final_portfolio_value": 9315.590460970354,
+      "profit_loss": -684.4095390296461
+    },
+    "SMA_Crossover": {
+      "total_return": 5.926358339486228,
+      "annualized_return": 64.92120587770545,
+      "volatility": 27.065647478429977,
+      "sharpe_ratio": 2.3986570404216097,
+      "max_drawdown": -5.4174683290228485,
+      "win_rate": 51.724137931034484,
+      "calmar_ratio": 11.98367981773053,
+      "total_trades": 29,
+      "winning_trades": 15,
+      "final_portfolio_value": 10592.635833948623,
+      "profit_loss": 592.6358339486233
+    },
+    "Bollinger_Bands": {
+      "total_return": -2.0393321935927604,
+      "annualized_return": -16.392992184224376,
+      "volatility": 13.21927775139938,
+      "sharpe_ratio": -1.240082286832125,
+      "max_drawdown": -4.309566831894095,
+      "win_rate": 80.0,
+      "calmar_ratio": -3.8038607645909277,
+      "total_trades": 5,
+      "winning_trades": 4,
+      "final_portfolio_value": 9796.066780640724,
+      "profit_loss": -203.93321935927634
+    },
+    "Combined_Technical": {
+      "total_return": -3.3053675253522194,
+      "annualized_return": -25.32906262860858,
+      "volatility": 11.888192178233624,
+      "sharpe_ratio": -2.130606760797842,
+      "max_drawdown": -4.662019240399737,
+      "win_rate": 33.33333333333333,
+      "calmar_ratio": -5.433066944279015,
+      "total_trades": 6,
+      "winning_trades": 2,
+      "final_portfolio_value": 9669.463247464779,
+      "profit_loss": -330.53675253522124
+    }
+  }
+}

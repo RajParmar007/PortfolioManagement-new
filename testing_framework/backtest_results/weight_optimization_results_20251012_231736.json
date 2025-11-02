@@ -1,0 +1,1952 @@
+{
+  "optimization_info": {
+    "timestamp": "2025-10-12T23:17:36.235143",
+    "total_combinations_tested": 161,
+    "best_weights": {
+      "weights": {
+        "technical": 0.55,
+        "sentiment": 0.05,
+        "prediction": 0.4
+      },
+      "strategy_total_return": 9.156230332082819,
+      "sharpe_ratio": 0.26492366724927763,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 3.21108441519444
+    }
+  },
+  "all_results": [
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.05,
+        "prediction": 0.9
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.1,
+        "prediction": 0.85
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.15,
+        "prediction": 0.8
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.2,
+        "prediction": 0.75
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.25,
+        "prediction": 0.7
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.3,
+        "prediction": 0.65
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.35,
+        "prediction": 0.6
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.4,
+        "prediction": 0.55
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.45,
+        "prediction": 0.5
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.5,
+        "prediction": 0.45
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.55,
+        "prediction": 0.4
+      },
+      "strategy_total_return": 5.888946164688011,
+      "sharpe_ratio": 0.17188636992532444,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 2.8371108493198
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.6,
+        "prediction": 0.35
+      },
+      "strategy_total_return": 7.569120728279029,
+      "sharpe_ratio": 0.23718000262008163,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 2.8431855136907864
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.65,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 8.657486776473137,
+      "sharpe_ratio": 0.20271023408124897,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 3.923217355559156
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.7,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 8.657486776473137,
+      "sharpe_ratio": 0.20271023408124897,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 3.923217355559156
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.75,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 10.092954798859605,
+      "sharpe_ratio": 0.23607591349029888,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 4.044346334672044
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.8,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 10.813029611827183,
+      "sharpe_ratio": 0.25476591101727736,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 4.061693590986836
+    },
+    {
+      "weights": {
+        "technical": 0.05,
+        "sentiment": 0.85,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 10.813029611827183,
+      "sharpe_ratio": 0.25476591101727736,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 4.061693590986836
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.05,
+        "prediction": 0.85
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.1,
+        "prediction": 0.8
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.15,
+        "prediction": 0.75
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.2,
+        "prediction": 0.7
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.25,
+        "prediction": 0.65
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.3,
+        "prediction": 0.6
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.35,
+        "prediction": 0.55
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.4,
+        "prediction": 0.5
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.45,
+        "prediction": 0.45
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.5,
+        "prediction": 0.4
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.55,
+        "prediction": 0.35
+      },
+      "strategy_total_return": 5.888946164688011,
+      "sharpe_ratio": 0.17188636992532444,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 2.8371108493198
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.6,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 5.888946164688011,
+      "sharpe_ratio": 0.17188636992532444,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 2.8371108493198
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.65,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 8.657486776473137,
+      "sharpe_ratio": 0.20271023408124897,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 3.923217355559156
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.7,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 8.657486776473137,
+      "sharpe_ratio": 0.20271023408124897,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 3.923217355559156
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.75,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 10.092954798859605,
+      "sharpe_ratio": 0.23607591349029888,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 4.044346334672044
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.8,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 10.813029611827183,
+      "sharpe_ratio": 0.25476591101727736,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 4.061693590986836
+    },
+    {
+      "weights": {
+        "technical": 0.1,
+        "sentiment": 0.85,
+        "prediction": 0.05
+      },
+      "strategy_total_return": 10.813029611827183,
+      "sharpe_ratio": 0.25476591101727736,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 4.061693590986836
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.05,
+        "prediction": 0.8
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.1,
+        "prediction": 0.75
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.15,
+        "prediction": 0.7
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.2,
+        "prediction": 0.65
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.25,
+        "prediction": 0.6
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.3,
+        "prediction": 0.55
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.35,
+        "prediction": 0.5
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.4,
+        "prediction": 0.45
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.45,
+        "prediction": 0.4
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.5,
+        "prediction": 0.35
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.55,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.6,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.65,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.7,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 8.657486776473137,
+      "sharpe_ratio": 0.20271023408124897,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 3.923217355559156
+    },
+    {
+      "weights": {
+        "technical": 0.15,
+        "sentiment": 0.75,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 10.092954798859605,
+      "sharpe_ratio": 0.23607591349029888,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 4.044346334672044
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.05,
+        "prediction": 0.75
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.1,
+        "prediction": 0.7
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.15,
+        "prediction": 0.65
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.2,
+        "prediction": 0.6
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.25,
+        "prediction": 0.55
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.3,
+        "prediction": 0.5
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.35,
+        "prediction": 0.45
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.4,
+        "prediction": 0.4
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.45,
+        "prediction": 0.35
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.5,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.55,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.6,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.65,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.7,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.2,
+        "sentiment": 0.75,
+        "prediction": 0.05
+      },
+      "strategy_total_return": 10.092954798859605,
+      "sharpe_ratio": 0.23607591349029888,
+      "win_rate": 33.33333333333333,
+      "total_recommendations": 9,
+      "volatility": 4.044346334672044
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.05,
+        "prediction": 0.7
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.1,
+        "prediction": 0.65
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.15,
+        "prediction": 0.6
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.2,
+        "prediction": 0.55
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.25,
+        "prediction": 0.5
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.3,
+        "prediction": 0.45
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.35,
+        "prediction": 0.4
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.4,
+        "prediction": 0.35
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.45,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.5,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.55,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.6,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.65,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.25,
+        "sentiment": 0.7,
+        "prediction": 0.05
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.3,
+        "sentiment": 0.05,
+        "prediction": 0.65
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.3,
+        "sentiment": 0.1,
+        "prediction": 0.6
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.3,
+        "sentiment": 0.15,
+        "prediction": 0.55
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.3,
+        "sentiment": 0.2,
+        "prediction": 0.5
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.3,
+        "sentiment": 0.25,
+        "prediction": 0.45
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.3,
+        "sentiment": 0.3,
+        "prediction": 0.4
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.3,
+        "sentiment": 0.35,
+        "prediction": 0.35
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.3,
+        "sentiment": 0.4,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.3,
+        "sentiment": 0.45,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.3,
+        "sentiment": 0.5,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.3,
+        "sentiment": 0.55,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.3,
+        "sentiment": 0.6,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.35,
+        "sentiment": 0.05,
+        "prediction": 0.6
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.35,
+        "sentiment": 0.1,
+        "prediction": 0.55
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.35,
+        "sentiment": 0.15,
+        "prediction": 0.5
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.35,
+        "sentiment": 0.2,
+        "prediction": 0.45
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.35,
+        "sentiment": 0.25,
+        "prediction": 0.4
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.35,
+        "sentiment": 0.3,
+        "prediction": 0.35
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.35,
+        "sentiment": 0.35,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.35,
+        "sentiment": 0.4,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.35,
+        "sentiment": 0.45,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.35,
+        "sentiment": 0.5,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.35,
+        "sentiment": 0.55,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.35,
+        "sentiment": 0.6,
+        "prediction": 0.05
+      },
+      "strategy_total_return": 6.9773122128821194,
+      "sharpe_ratio": 0.155071674596935,
+      "win_rate": 22.22222222222222,
+      "total_recommendations": 9,
+      "volatility": 3.9245738943469175
+    },
+    {
+      "weights": {
+        "technical": 0.4,
+        "sentiment": 0.05,
+        "prediction": 0.55
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.4,
+        "sentiment": 0.1,
+        "prediction": 0.5
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.4,
+        "sentiment": 0.15,
+        "prediction": 0.45
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.4,
+        "sentiment": 0.2,
+        "prediction": 0.4
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.4,
+        "sentiment": 0.25,
+        "prediction": 0.35
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.4,
+        "sentiment": 0.3,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.4,
+        "sentiment": 0.35,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.4,
+        "sentiment": 0.4,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.4,
+        "sentiment": 0.45,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.4,
+        "sentiment": 0.5,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.45,
+        "sentiment": 0.05,
+        "prediction": 0.5
+      },
+      "strategy_total_return": 0,
+      "sharpe_ratio": 0,
+      "win_rate": 0.0,
+      "total_recommendations": 9,
+      "volatility": 0.0
+    },
+    {
+      "weights": {
+        "technical": 0.45,
+        "sentiment": 0.1,
+        "prediction": 0.45
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.45,
+        "sentiment": 0.15,
+        "prediction": 0.4
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.45,
+        "sentiment": 0.2,
+        "prediction": 0.35
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.45,
+        "sentiment": 0.25,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.45,
+        "sentiment": 0.3,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.45,
+        "sentiment": 0.35,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.45,
+        "sentiment": 0.4,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.45,
+        "sentiment": 0.45,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.45,
+        "sentiment": 0.5,
+        "prediction": 0.05
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.5,
+        "sentiment": 0.05,
+        "prediction": 0.45
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.5,
+        "sentiment": 0.1,
+        "prediction": 0.4
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.5,
+        "sentiment": 0.15,
+        "prediction": 0.35
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.5,
+        "sentiment": 0.2,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 2.539520779119586,
+      "sharpe_ratio": 0.043191771286599685,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 2.6741739306000603
+    },
+    {
+      "weights": {
+        "technical": 0.5,
+        "sentiment": 0.25,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.5,
+        "sentiment": 0.3,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.5,
+        "sentiment": 0.35,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.5,
+        "sentiment": 0.4,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 3.6278868273136937,
+      "sharpe_ratio": 0.06188913402275512,
+      "win_rate": 11.11111111111111,
+      "total_recommendations": 9,
+      "volatility": 3.820248472285801
+    },
+    {
+      "weights": {
+        "technical": 0.55,
+        "sentiment": 0.05,
+        "prediction": 0.4
+      },
+      "strategy_total_return": 9.156230332082819,
+      "sharpe_ratio": 0.26492366724927763,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 3.21108441519444
+    },
+    {
+      "weights": {
+        "technical": 0.55,
+        "sentiment": 0.1,
+        "prediction": 0.35
+      },
+      "strategy_total_return": 9.156230332082819,
+      "sharpe_ratio": 0.26492366724927763,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 3.21108441519444
+    },
+    {
+      "weights": {
+        "technical": 0.55,
+        "sentiment": 0.15,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.55,
+        "sentiment": 0.2,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.55,
+        "sentiment": 0.25,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.55,
+        "sentiment": 0.3,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.55,
+        "sentiment": 0.35,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.6,
+        "sentiment": 0.05,
+        "prediction": 0.35
+      },
+      "strategy_total_return": 7.476055768491799,
+      "sharpe_ratio": 0.20048143470140675,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 3.31205828354155
+    },
+    {
+      "weights": {
+        "technical": 0.6,
+        "sentiment": 0.1,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 9.156230332082819,
+      "sharpe_ratio": 0.26492366724927763,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 3.21108441519444
+    },
+    {
+      "weights": {
+        "technical": 0.6,
+        "sentiment": 0.15,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.6,
+        "sentiment": 0.2,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.6,
+        "sentiment": 0.25,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.6,
+        "sentiment": 0.3,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.6,
+        "sentiment": 0.35,
+        "prediction": 0.05
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.65,
+        "sentiment": 0.05,
+        "prediction": 0.3
+      },
+      "strategy_total_return": 8.564421816685908,
+      "sharpe_ratio": 0.18358791875894445,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.275530561682469
+    },
+    {
+      "weights": {
+        "technical": 0.65,
+        "sentiment": 0.1,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 8.564421816685908,
+      "sharpe_ratio": 0.18358791875894445,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.275530561682469
+    },
+    {
+      "weights": {
+        "technical": 0.65,
+        "sentiment": 0.15,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.65,
+        "sentiment": 0.2,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.65,
+        "sentiment": 0.25,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.7,
+        "sentiment": 0.05,
+        "prediction": 0.25
+      },
+      "strategy_total_return": 8.564421816685908,
+      "sharpe_ratio": 0.18358791875894445,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.275530561682469
+    },
+    {
+      "weights": {
+        "technical": 0.7,
+        "sentiment": 0.1,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 8.564421816685908,
+      "sharpe_ratio": 0.18358791875894445,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.275530561682469
+    },
+    {
+      "weights": {
+        "technical": 0.7,
+        "sentiment": 0.15,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 8.564421816685908,
+      "sharpe_ratio": 0.18358791875894445,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.275530561682469
+    },
+    {
+      "weights": {
+        "technical": 0.7,
+        "sentiment": 0.2,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.7,
+        "sentiment": 0.25,
+        "prediction": 0.05
+      },
+      "strategy_total_return": 10.244596380276926,
+      "sharpe_ratio": 0.2317570749501281,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.192414925153216
+    },
+    {
+      "weights": {
+        "technical": 0.75,
+        "sentiment": 0.05,
+        "prediction": 0.2
+      },
+      "strategy_total_return": 11.400154482241577,
+      "sharpe_ratio": 0.23525031338068186,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.675943461607473
+    },
+    {
+      "weights": {
+        "technical": 0.75,
+        "sentiment": 0.1,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 11.400154482241577,
+      "sharpe_ratio": 0.23525031338068186,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.675943461607473
+    },
+    {
+      "weights": {
+        "technical": 0.75,
+        "sentiment": 0.15,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 11.400154482241577,
+      "sharpe_ratio": 0.23525031338068186,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.675943461607473
+    },
+    {
+      "weights": {
+        "technical": 0.8,
+        "sentiment": 0.05,
+        "prediction": 0.15
+      },
+      "strategy_total_return": 10.680079669273997,
+      "sharpe_ratio": 0.21557778739799502,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.731511833630787
+    },
+    {
+      "weights": {
+        "technical": 0.8,
+        "sentiment": 0.1,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 10.680079669273997,
+      "sharpe_ratio": 0.21557778739799502,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.731511833630787
+    },
+    {
+      "weights": {
+        "technical": 0.85,
+        "sentiment": 0.05,
+        "prediction": 0.1
+      },
+      "strategy_total_return": 10.680079669273997,
+      "sharpe_ratio": 0.21557778739799502,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.731511833630787
+    },
+    {
+      "weights": {
+        "technical": 0.85,
+        "sentiment": 0.1,
+        "prediction": 0.05
+      },
+      "strategy_total_return": 10.680079669273997,
+      "sharpe_ratio": 0.21557778739799502,
+      "win_rate": 44.44444444444444,
+      "total_recommendations": 9,
+      "volatility": 4.731511833630787
+    }
+  ]
+}
