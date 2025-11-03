@@ -123,15 +123,13 @@ def technical_indicators(ohlc: Any, lookback:int = 30) -> Dict[str, Any]:
         "hist": float(hist.iloc[-1])
     }
 
-    # Naive signal heuristic:
-    # - if short-term SMA > long-term SMA and MACD hist positive => buy
-    # - if short-term SMA < long-term SMA and MACD hist negative => sell
+    # SMA Signal: Pure 5-day vs 20-day crossover (foundation signal)
     simple_signal = "hold"
     try:
         if 5 in sma and 20 in sma:
-            if sma[5] > sma[20] and macd["hist"] > 0:
+            if sma[5] > sma[20]:
                 simple_signal = "buy"
-            elif sma[5] < sma[20] and macd["hist"] < 0:
+            elif sma[5] < sma[20]:
                 simple_signal = "sell"
     except Exception:
         simple_signal = "hold"

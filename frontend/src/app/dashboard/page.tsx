@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -17,27 +17,31 @@ interface Company {
 }
 
 export default function DashboardPage() {
+  // Sector mapping
+  const SECTOR_OPTIONS = useMemo(() => ({
+    "ms_technology": "Technology",
+    "ms_financial_services": "Financial Services",
+    "ms_healthcare": "Healthcare",
+    "ms_consumer_cyclical": "Consumer Cyclical",
+    "ms_communication_services": "Communication Services",
+    "ms_industrials": "Industrials",
+    "ms_consumer_defensive": "Consumer Defensive",
+    "ms_utilities": "Utilities",
+    "ms_real_estate": "Real Estate",
+    "ms_basic_materials": "Basic Materials",
+    "ms_energy": "Energy",
+  }), [])
+
   // Phase 1: Shortlisting State
-  const [sector, setSector] = useState('Technology')
+  const [sector, setSector] = useState('ms_technology')
   const [companyCount, setCompanyCount] = useState<number>(10)
   const [shortlisting, setShortlisting] = useState(false)
   const [shortlistedCompanies, setShortlistedCompanies] = useState<Company[]>([])
   const [selectedCompanies, setSelectedCompanies] = useState<string[]>([])
   
-  // Phase 2: Analysis State
-  const [riskTolerance, setRiskTolerance] = useState<'low' | 'medium' | 'high'>('medium')
-  const [timeframe, setTimeframe] = useState<number>(5)
+  // Analysis State
   const [analyzing, setAnalyzing] = useState(false)
   const [analysisResults, setAnalysisResults] = useState<any>(null)
-  
-  // Calculate investment horizon based on timeframe
-  const getInvestmentHorizon = (years: number): 'short_term' | 'medium_term' | 'long_term' => {
-    if (years <= 3) return 'short_term'
-    if (years <= 7) return 'medium_term'
-    return 'long_term'
-  }
-  
-  const investmentHorizon = getInvestmentHorizon(timeframe)
 
   // Phase 1: Shortlist Companies
   const handleShortlist = async () => {
@@ -47,7 +51,9 @@ export default function DashboardPage() {
     setAnalysisResults(null)
     
     try {
-      const response = await agentAPI.shortlistCompanies(sector, companyCount)
+      // Convert the sector key to the display name for the API if needed
+      const sectorName = SECTOR_OPTIONS[sector as keyof typeof SECTOR_OPTIONS] || sector;
+      const response = await agentAPI.shortlistCompanies(sectorName, companyCount)
       if (response.status === 'success' && response.data) {
         setShortlistedCompanies(response.data)
         // Auto-select all companies by default
@@ -70,7 +76,17 @@ export default function DashboardPage() {
     )
   }
 
-  // Phase 2: Analyze Selected Companies
+  // Format recommendation text
+  const formatRecommendation = (text: string) => {
+    return text
+      .replace(/\\n/g, '\n')  // Convert literal \n to actual newlines
+      .replace(/\\"/g, '"')   // Convert escaped quotes to actual quotes
+      .replace(/={20,}/g, '')  // Remove long sequences of = symbols
+      .replace(/-{20,}/g, '')  // Remove long sequences of - symbols
+      .trim()
+  }
+
+  // Analyze Selected Companies
   const handleAnalyze = async () => {
     if (selectedCompanies.length === 0) {
       alert('Please select at least one company to analyze')
@@ -84,8 +100,8 @@ export default function DashboardPage() {
       const response = await agentAPI.analyzeCompanies(
         selectedCompanies,
         {
-          risk_tolerance: riskTolerance,
-          investment_horizon: investmentHorizon,
+          risk_tolerance: 'medium',
+          investment_horizon: 'medium_term',
           preferred_sectors: [sector]
         }
       )
@@ -107,7 +123,7 @@ export default function DashboardPage() {
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">AI Portfolio Manager</h1>
-          <p className="text-gray-600">Two-step process: Shortlist companies, then analyze them</p>
+          <p className="text-gray-600">Shortlist companies and run AI-powered analysis</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -117,7 +133,7 @@ export default function DashboardPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Building2 className="h-5 w-5" />
-                  Phase 1: Shortlist Companies
+                  Shortlist Companies
                 </CardTitle>
                 <CardDescription>Select sector and number of companies</CardDescription>
               </CardHeader>
@@ -130,12 +146,11 @@ export default function DashboardPage() {
                     onChange={(e) => setSector(e.target.value)}
                     disabled={shortlisting}
                   >
-                    <option value="Technology">Technology</option>
-                    <option value="Finance">Finance</option>
-                    <option value="Healthcare">Healthcare</option>
-                    <option value="Energy">Energy</option>
-                    <option value="Consumer Goods">Consumer Goods</option>
-                    <option value="Industrials">Industrials</option>
+                    {Object.entries(SECTOR_OPTIONS).map(([value, label]) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -168,48 +183,19 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
 
-            {/* Phase 2: Analysis Panel */}
+            {/* Run Analysis Button */}
             {shortlistedCompanies.length > 0 && (
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <TrendingUp className="h-5 w-5" />
-                    Phase 2: Analyze
+                    Run Analysis
                   </CardTitle>
-                  <CardDescription>Configure analysis parameters</CardDescription>
+                  <CardDescription>
+                    {selectedCompanies.length} {selectedCompanies.length === 1 ? 'company' : 'companies'} selected
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Risk Tolerance</label>
-                    <select 
-                      className="w-full p-2 border rounded-md"
-                      value={riskTolerance}
-                      onChange={(e) => setRiskTolerance(e.target.value as 'low' | 'medium' | 'high')}
-                      disabled={analyzing}
-                    >
-                      <option value="low">Low Risk</option>
-                      <option value="medium">Medium Risk</option>
-                      <option value="high">High Risk</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Investment Timeframe (years)</label>
-                    <Input 
-                      type="number"
-                      value={timeframe}
-                      onChange={(e) => setTimeframe(Number(e.target.value))}
-                      min="1"
-                      max="30"
-                      disabled={analyzing}
-                    />
-                  </div>
-
-                  <div className="text-sm text-gray-600">
-                    <p><strong>Selected:</strong> {selectedCompanies.length} companies</p>
-                    <p><strong>Horizon:</strong> {investmentHorizon.replace('_', ' ')}</p>
-                  </div>
-
+                <CardContent>
                   <Button 
                     className="w-full"
                     onClick={handleAnalyze}
@@ -283,12 +269,17 @@ export default function DashboardPage() {
                 <CardContent className="space-y-6">
                   {/* Final Recommendation */}
                   {analysisResults.recommendation && (
-                    <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                      <h3 className="font-semibold text-lg mb-2">Portfolio Recommendation</h3>
-                      <div className="text-sm whitespace-pre-wrap">
-                        {typeof analysisResults.recommendation === 'object' && analysisResults.recommendation.content
-                          ? analysisResults.recommendation.content
-                          : JSON.stringify(analysisResults.recommendation, null, 2)}
+                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6">
+                      <h3 className="font-bold text-xl mb-4 text-gray-800">📊 Portfolio Recommendation</h3>
+                      <div className="prose prose-sm max-w-none">
+                        <div className="text-gray-700 whitespace-pre-wrap leading-relaxed text-sm break-words overflow-hidden">
+                          {(() => {
+                            const content = typeof analysisResults.recommendation === 'object' && analysisResults.recommendation.content
+                              ? analysisResults.recommendation.content
+                              : JSON.stringify(analysisResults.recommendation, null, 2);
+                            return formatRecommendation(content);
+                          })()}
+                        </div>
                       </div>
                     </div>
                   )}

@@ -234,10 +234,21 @@ async def analyze_companies(request: AnalyzeCompaniesRequest):
         # Step 5: Combine Results
         final_results = {}
         for ticker in selected_tickers:
+            # Extract news items for this ticker
+            news_items = []
+            if ticker in ingestion_data and 'news' in ingestion_data[ticker]:
+                news_data = ingestion_data[ticker]['news']
+                if isinstance(news_data, str):
+                    for line in news_data.strip().split("\n"):
+                        if ' - ' in line:
+                            title, url = line.rsplit(' - ', 1)
+                            news_items.append({"title": title.strip(), "url": url.strip()})
+            
             final_results[ticker] = {
                 "technical_analysis": technical_results.get(ticker, {}),
                 "sentiment_analysis": sentiment_results.get(ticker, {}),
                 "prediction_analysis": prediction_results.get(ticker, {}),
+                "news_data": news_items
             }
         
         # Step 6: Portfolio Management / Recommendation
