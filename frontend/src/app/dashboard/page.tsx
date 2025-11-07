@@ -5,9 +5,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import Navbar from '@/components/navbar'
 import { agentAPI } from '@/lib/fastapi'
 import { TrendingUp, Building2, CheckCircle2, Loader2 } from 'lucide-react'
+import { StockCard } from '@/components/dashboard/stock-card'
 
 interface Company {
   symbol: string
@@ -261,82 +263,100 @@ export default function DashboardPage() {
 
             {/* Analysis Results */}
             {analysisResults && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>Analysis Results</CardTitle>
-                  <CardDescription>Complete portfolio analysis and recommendation</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  {/* Final Recommendation */}
-                  {analysisResults.recommendation && (
-                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6">
-                      <h3 className="font-bold text-xl mb-4 text-gray-800">📊 Portfolio Recommendation</h3>
-                      <div className="prose prose-sm max-w-none">
-                        <div className="text-gray-700 whitespace-pre-wrap leading-relaxed text-sm break-words overflow-hidden">
-                          {(() => {
-                            const content = typeof analysisResults.recommendation === 'object' && analysisResults.recommendation.content
-                              ? analysisResults.recommendation.content
-                              : JSON.stringify(analysisResults.recommendation, null, 2);
-                            return formatRecommendation(content);
-                          })()}
+              <div className="space-y-6">
+                <Tabs defaultValue="cards" className="w-full">
+                  <TabsList className="grid w-full grid-cols-2 mb-6">
+                    <TabsTrigger value="cards">Stock Cards</TabsTrigger>
+                    <TabsTrigger value="detailed">Detailed Analysis</TabsTrigger>
+                  </TabsList>
+
+                  {/* Stock Cards View */}
+                  <TabsContent value="cards" className="space-y-4">
+                    {(() => {
+                      try {
+                        // Parse the recommendation if it's a string
+                        let parsedData = analysisResults.recommendation;
+                        if (typeof parsedData === 'string') {
+                          parsedData = JSON.parse(parsedData);
+                        } else if (parsedData?.content) {
+                          parsedData = JSON.parse(parsedData.content);
+                        }
+
+                        const structuredData = parsedData?.structured_data || [];
+                        
+                        if (structuredData.length === 0) {
+                          return (
+                            <Card>
+                              <CardContent className="p-6">
+                                <p className="text-gray-500">No structured data available</p>
+                              </CardContent>
+                            </Card>
+                          );
+                        }
+
+                        return structuredData.map((stock: any) => (
+                          <StockCard
+                            key={stock.ticker}
+                            ticker={stock.ticker}
+                            decision={stock.decision}
+                            confidence={stock.confidence}
+                            positionSize={stock.position_size}
+                            reasoning={stock.reasoning}
+                            news={stock.news}
+                          />
+                        ));
+                      } catch (error) {
+                        console.error('Error parsing structured data:', error);
+                        return (
+                          <Card>
+                            <CardContent className="p-6">
+                              <p className="text-red-500">Error parsing analysis results</p>
+                            </CardContent>
+                          </Card>
+                        );
+                      }
+                    })()}
+                  </TabsContent>
+
+                  {/* Detailed Analysis View */}
+                  <TabsContent value="detailed">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>📊 Detailed Portfolio Analysis</CardTitle>
+                        <CardDescription>AI-generated investment recommendations</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6">
+                          <div className="prose prose-sm max-w-none">
+                            <div className="text-gray-700 whitespace-pre-wrap leading-relaxed text-sm break-words overflow-hidden">
+                              {(() => {
+                                try {
+                                  let parsedData = analysisResults.recommendation;
+                                  if (typeof parsedData === 'string') {
+                                    parsedData = JSON.parse(parsedData);
+                                  } else if (parsedData?.content) {
+                                    parsedData = JSON.parse(parsedData.content);
+                                  }
+                                  
+                                  const llmAnalysis = parsedData?.llm_analysis || 'No analysis available';
+                                  return formatRecommendation(llmAnalysis);
+                                } catch (error) {
+                                  const content = typeof analysisResults.recommendation === 'object' && analysisResults.recommendation.content
+                                    ? analysisResults.recommendation.content
+                                    : JSON.stringify(analysisResults.recommendation, null, 2);
+                                  return formatRecommendation(content);
+                                }
+                              })()}
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Technical Analysis */}
-                  {analysisResults.technical_analysis && (
-                    <div>
-                      <h3 className="font-semibold mb-2">Technical Analysis</h3>
-                      <div className="space-y-2">
-                        {Object.entries(analysisResults.technical_analysis).map(([ticker, data]: [string, any]) => (
-                          <div key={ticker} className="p-3 bg-gray-50 rounded-md">
-                            <div className="font-medium">{ticker}</div>
-                            <pre className="text-xs mt-1 overflow-auto">
-                              {JSON.stringify(data, null, 2)}
-                            </pre>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Sentiment Analysis */}
-                  {analysisResults.sentiment_analysis && (
-                    <div>
-                      <h3 className="font-semibold mb-2">Sentiment Analysis</h3>
-                      <div className="space-y-2">
-                        {Object.entries(analysisResults.sentiment_analysis).map(([ticker, data]: [string, any]) => (
-                          <div key={ticker} className="p-3 bg-gray-50 rounded-md">
-                            <div className="font-medium">{ticker}</div>
-                            <pre className="text-xs mt-1 overflow-auto">
-                              {JSON.stringify(data, null, 2)}
-                            </pre>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Prediction Analysis */}
-                  {analysisResults.prediction_analysis && (
-                    <div>
-                      <h3 className="font-semibold mb-2">Price Predictions</h3>
-                      <div className="space-y-2">
-                        {Object.entries(analysisResults.prediction_analysis).map(([ticker, data]: [string, any]) => (
-                          <div key={ticker} className="p-3 bg-gray-50 rounded-md">
-                            <div className="font-medium">{ticker}</div>
-                            <pre className="text-xs mt-1 overflow-auto">
-                              {JSON.stringify(data, null, 2)}
-                            </pre>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                </Tabs>
+              </div>
             )}
+
 
             {/* Empty State */}
             {shortlistedCompanies.length === 0 && !analysisResults && (

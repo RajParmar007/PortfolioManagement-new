@@ -180,6 +180,12 @@ async def analyze_companies(request: AnalyzeCompaniesRequest):
                 stock_data = json.loads(stock_data_raw)
             else:
                 stock_data = {}
+
+            # Save stock data to file for prediction agent
+            os.makedirs("data", exist_ok=True)
+            stock_data_path = f"data/{ticker}_stock_data.json"
+            with open(stock_data_path, "w") as f:
+                json.dump(stock_data,f,indent=2)
             
             news_data = get_market_news.func(ticker)
             reddit_data = get_reddit_posts.func(ticker)

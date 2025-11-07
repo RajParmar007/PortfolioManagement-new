@@ -245,7 +245,16 @@ Now analyze the following stocks:
         
         # Invoke LLM
         response = llm.invoke(prompt)
-        return response.content if hasattr(response, 'content') else str(response)
+        llm_text = response.content if hasattr(response, 'content') else str(response)
+        
+        # Return both structured data and LLM text
+        return json.dumps({
+            'structured_data': recommendations,
+            'llm_analysis': llm_text
+        })
         
     except Exception as e:
-        return f"Error generating recommendations: {str(e)}"
+        return json.dumps({
+            'structured_data': [],
+            'llm_analysis': f"Error generating recommendations: {str(e)}"
+        })
