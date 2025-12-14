@@ -2,162 +2,141 @@
 
 An AI-powered investment analysis platform that uses a collaborative multi-agent architecture to analyze markets, evaluate companies, and generate personalized investment recommendations.
 
-🧠 Problem Statement
+---
 
-Retail investors often struggle to make informed investment decisions due to:
+## Problem Statement
 
-Information overload from news, financial reports, and social media
+Retail investors face significant challenges when making investment decisions due to:
 
-Difficulty combining technical analysis, sentiment, and predictions
+- Information overload from news, financial reports, and social media  
+- Difficulty combining technical analysis, sentiment analysis, and predictions  
+- Lack of personalized guidance based on risk appetite and financial goals  
 
-Lack of personalized portfolio guidance based on risk and goals
+Most traditional tools analyze these factors in isolation, forcing investors to manually interpret and connect insights. This project addresses this gap by using multiple specialized AI agents that work together, similar to how real-world financial firms operate.
 
-Traditional tools analyze these aspects in isolation, leaving investors to manually interpret and connect the dots.
+---
 
-👉 This project solves that problem by using multiple specialized AI agents that work together, mimicking how real-world financial firms operate.
+## Key Features
 
-🚀 Key Features
+- Multi-agent investment analysis pipeline  
+- Six specialized AI agents with clearly defined responsibilities  
+- End-to-end workflow from stock discovery to portfolio allocation  
+- Personalized recommendations based on user preferences 
+- Real-time market data and news analysis  
+- Explainable and modular agent outputs  
 
-Multi-Agent Investment Workflow (6 specialized AI agents)
+---
 
-End-to-End Analysis Pipeline: From stock discovery to portfolio allocation
+## Multi-Agent Architecture
 
-Personalized Recommendations based on user risk profile and preferences
+The system is designed around six independent yet cooperative AI agents. Each agent focuses on a specific financial analysis task and contributes to the final investment decision.
 
-Real-Time Market & News Analysis
+---
 
-Explainable Outputs — each agent contributes transparently
+## AI Agents
 
-Scalable Architecture suitable for real-world fintech use cases
-
-🧩 Multi-Agent Architecture (Core of the System)
-
-Each agent is responsible for a single expert task, and together they form a complete investment decision system.
-
-1️⃣ Company Shortlisting Agent
+### 1. Company Shortlisting Agent
 
 Purpose: Identify investable companies
 
-What it does:
+- Filters stocks based on sector, market capitalization, fundamentals, and trends  
+- Aligns shortlisted companies with user investment goals and time horizon  
+- Reduces the investment universe to high-potential candidates  
 
-Filters stocks based on market cap, sector, fundamentals, and trends
+This agent acts as the entry point of the investment workflow.
 
-Matches companies with user preferences and investment horizon
+---
 
-Narrows the universe to high-potential candidates
+### 2. Data Ingestion Agent
 
-📌 Acts as the entry point of the pipeline.
+Purpose: Collect and structure data
 
-2️⃣ Data Ingestion Agent
+- Gathers real-time market prices and historical financial data  
+- Ingests relevant financial news and updates  
+- Cleans and structures raw data for downstream agents  
 
-Purpose: Gather accurate and up-to-date data
+This agent ensures that all analysis is based on reliable and up-to-date information.
 
-What it does:
+---
 
-Collects real-time market prices, historical data, and financial indicators
+### 3. Sentiment Analysis Agent
 
-Ingests news articles and market updates
+Purpose: Capture market psychology
 
-Structures raw data for downstream agents
+- Analyzes sentiment from news articles and social media sources  
+- Detects bullish, bearish, or neutral signals  
+- Identifies hype-driven or fear-driven market behavior  
 
-📌 Ensures all agents operate on reliable and fresh information.
+This agent introduces the human emotion aspect into investment analysis.
 
-3️⃣ Sentiment Analysis Agent
+---
 
-Purpose: Understand market psychology
+### 4. Technical Analysis Agent
 
-What it does:
+Purpose: Analyze price action and trends
 
-Analyzes sentiment from news, headlines, and social media
+- Applies technical indicators such as moving averages, RSI, MACD, and volume  
+- Identifies support and resistance levels  
 
-Detects bullish, bearish, or neutral market signals
+This agent provides short-term and medium-term market insights.
 
-Identifies hype, fear, or momentum around specific stocks
+---
 
-📌 Captures the “human emotion” factor often missed by pure analytics.
-
-4️⃣ Technical Analysis Agent
-
-Purpose: Evaluate price behavior and trends
-
-What it does:
-
-Applies indicators like moving averages, RSI, MACD, and volume analysis
-
-Identifies support/resistance levels and trend strength
-
-Flags entry and exit signals
-
-📌 Provides short-term and medium-term trading insights.
-
-5️⃣ Prediction Agent
+### 5. Prediction Agent
 
 Purpose: Forecast future price movement
 
-What it does:
+- Uses machine learning models on historical and technical data  
+- Estimates potential future price ranges and trend direction  
+- Supports scenario-based and probabilistic forecasting  
 
-Uses machine learning models on historical and technical data
+This agent adds a forward-looking perspective to the system.
 
-Predicts possible price ranges and trend direction
+---
 
-Supports scenario-based analysis rather than blind predictions
+### 6. Portfolio Manager Agent
 
-📌 Adds a probabilistic future outlook to the system.
+Purpose: Generate final investment recommendations
 
-6️⃣ Portfolio Manager Agent
+- Aggregates outputs from all other agents  
+- Considers user risk tolerance and investment preferences  
+- Recommends portfolio allocation and asset distribution  
 
-Purpose: Final decision-maker
+This agent acts as a virtual investment advisor.
 
-What it does:
+---
 
-Combines outputs from all previous agents
+## Workflow
 
-Aligns recommendations with user risk tolerance and goals
+1. User defines investment preferences and risk appetite  
+2. Company Shortlisting Agent selects suitable stocks  
+3. Data Ingestion Agent gathers market and news data  
+4. Sentiment, Technical, and Prediction Agents analyze the data independently  
+5. Portfolio Manager Agent synthesizes all insights  
+6. Final investment recommendations are generated  
 
-Suggests asset allocation and portfolio composition
+---
 
-📌 Acts like a virtual investment advisor.
+## Use Cases
 
-🔄 Overall Workflow
+- Individual investors seeking data-driven decisions  
+- Finance students learning investment analysis workflows  
+- FinTech prototypes and robo-advisor systems  
+- Research projects on multi-agent decision-making  
 
-User defines risk appetite and investment goals
+---
 
-Company Shortlisting Agent selects candidate stocks
+## Future Enhancements
 
-Data Ingestion Agent gathers market and news data
+- Real-time portfolio tracking and performance analytics  
+- Advanced data visualization and interactive dashboards  
+- Integration with brokerage and trading APIs  
+- Risk stress testing and scenario simulation  
+- Mobile application support  
+- Social and collaborative investing features  
 
-Sentiment, Technical, and Prediction Agents analyze from different perspectives
+---
 
-Portfolio Manager Agent synthesizes everything
+## Conclusion
 
-Final investment recommendations are generated
-
-🎯 Use Cases
-
-Retail Investors – Smarter, data-driven investing
-
-Finance Students – Understanding real-world investment workflows
-
-FinTech Prototypes – Base architecture for robo-advisors
-
-Research Projects – Multi-agent decision systems in finance
-
-🔮 Future Enhancements
-
-Real-time portfolio performance tracking
-
-Advanced interactive visualizations and charts
-
-Integration with brokerage APIs for execution
-
-Risk stress-testing and scenario simulation
-
-Mobile application support
-
-Social and collaborative investing features
-
-✅ Conclusion
-
-This project demonstrates how multi-agent AI systems can replicate real financial decision-making by breaking complex investment analysis into cooperating intelligent agents.
-
-By combining data ingestion, sentiment analysis, technical indicators, prediction models, and portfolio logic, the system delivers holistic, explainable, and personalized investment insights — far beyond traditional single-model approaches.
+This project demonstrates how multi-agent AI systems can replicate real-world financial decision-making by breaking complex investment analysis into cooperative, specialized agents. By combining market data ingestion, sentiment analysis, technical indicators, machine learning predictions, and portfolio logic, the system delivers holistic, explainable, and personalized investment insights beyond traditional single-model approaches.
