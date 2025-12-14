@@ -1,153 +1,163 @@
-# Multi-Agent Investment System
+# Multi-Agent Investment Intelligence System
 
-A comprehensive AI-powered investment analysis platform that combines multiple specialized agents to provide intelligent investment recommendations.
+An AI-powered investment analysis platform that uses a collaborative multi-agent architecture to analyze markets, evaluate companies, and generate personalized investment recommendations.
 
-## 🚀 Features
+🧠 Problem Statement
 
-- **Multi-Agent Architecture**: Six specialized AI agents working together
-- **Modern Web Interface**: Next.js frontend with TailwindCSS and shadcn/ui
-- **Secure Authentication**: Supabase-powered user management
-- **Real-time Analysis**: FastAPI backend with live market data integration
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
+Retail investors often struggle to make informed investment decisions due to:
 
-## 🏗️ Architecture
+Information overload from news, financial reports, and social media
 
-### Frontend (Next.js)
-- **Home Page**: Landing page with feature overview
-- **Authentication**: Login/signup with Supabase Auth
-- **Dashboard**: Protected route with agent controls and results
-- **About Page**: Detailed information about the system
+Difficulty combining technical analysis, sentiment, and predictions
 
-### Backend (FastAPI)
-- **RESTful API**: Clean endpoints for all agent operations
-- **Agent Integration**: Direct integration with existing Python agents
-- **CORS Support**: Configured for frontend communication
-- **Error Handling**: Comprehensive error responses
+Lack of personalized portfolio guidance based on risk and goals
 
-### AI Agents
-1. **Company Shortlisting Agent**: Identifies promising investment opportunities
-2. **Data Ingestion Agent**: Collects real-time market data and news
-3. **Sentiment Analysis Agent**: Analyzes market sentiment from multiple sources
-4. **Technical Analysis Agent**: Performs advanced technical analysis
-5. **Prediction Agent**: Uses ML models for price forecasting
-6. **Portfolio Manager Agent**: Synthesizes all analysis for recommendations
+Traditional tools analyze these aspects in isolation, leaving investors to manually interpret and connect the dots.
 
-## 🛠️ Technology Stack
+👉 This project solves that problem by using multiple specialized AI agents that work together, mimicking how real-world financial firms operate.
 
-### Frontend
-- Next.js 14 with App Router
-- TypeScript for type safety
-- TailwindCSS for styling
-- shadcn/ui for components
-- Supabase for authentication and database
-- Axios for API communication
+🚀 Key Features
 
-### Backend
-- FastAPI for high-performance API
-- Pydantic for data validation
-- Uvicorn ASGI server
-- Integration with existing agent system
+Multi-Agent Investment Workflow (6 specialized AI agents)
 
-### Database
-- Supabase PostgreSQL
-- Row Level Security (RLS)
-- Real-time subscriptions
+End-to-End Analysis Pipeline: From stock discovery to portfolio allocation
 
-## 📋 Agent Flow
+Personalized Recommendations based on user risk profile and preferences
 
-1. **User Profile Creation**: Users specify investment preferences and risk tolerance
-2. **Company Shortlisting**: AI identifies potential stocks based on user profile and market conditions
-3. **Data Ingestion**: Comprehensive data collection from multiple sources
-4. **Multi-Agent Analysis**: 
-   - Sentiment analysis from news and social media
-   - Technical analysis with advanced indicators
-   - ML-powered price predictions
-5. **Portfolio Recommendations**: Synthesized recommendations tailored to user preferences
+Real-Time Market & News Analysis
 
-## 🚀 Quick Start
+Explainable Outputs — each agent contributes transparently
 
-### Prerequisites
-- Node.js 18+
-- Python 3.8+
-- Supabase account
+Scalable Architecture suitable for real-world fintech use cases
 
-### Setup
-1. **Clone and setup frontend**:
-   ```bash
-   cd frontend
-   npm install
-   cp .env.local.example .env.local
-   # Configure your Supabase credentials in .env.local
-   npm run dev
-   ```
+🧩 Multi-Agent Architecture (Core of the System)
 
-2. **Setup backend**:
-   ```bash
-   pip install -r fastapi_requirements.txt
-   pip install -r requirements.txt
-   python start_backend.py
-   ```
+Each agent is responsible for a single expert task, and together they form a complete investment decision system.
 
-3. **Configure Supabase**:
-   - Create tables using SQL in SETUP.md
-   - Configure authentication settings
+1️⃣ Company Shortlisting Agent
 
-### Access Points
-- **Frontend**: http://localhost:3000
-- **API**: http://localhost:8000
-- **API Docs**: http://localhost:8000/docs
+Purpose: Identify investable companies
 
-## 📊 Dashboard Features
+What it does:
 
-### AI Agents Tab
-- Individual agent controls
-- Real-time status monitoring
-- Results preview for each agent
+Filters stocks based on market cap, sector, fundamentals, and trends
 
-### Analysis Results Tab
-- Comprehensive analysis results
-- Formatted JSON output
-- Historical analysis tracking
+Matches companies with user preferences and investment horizon
 
-### Profile Settings Tab
-- Risk tolerance configuration
-- Investment horizon settings
-- Sector preferences
+Narrows the universe to high-potential candidates
 
-## 🔐 Security Features
+📌 Acts as the entry point of the pipeline.
 
-- **Authentication**: Secure user authentication with Supabase
-- **Route Protection**: Middleware-based route protection
-- **Data Privacy**: Row-level security for user data
-- **CORS Configuration**: Secure cross-origin requests
+2️⃣ Data Ingestion Agent
 
-## 🎯 Use Cases
+Purpose: Gather accurate and up-to-date data
 
-- **Individual Investors**: Personal portfolio analysis and recommendations
-- **Financial Advisors**: Client portfolio management tools
-- **Research**: Market analysis and trend identification
-- **Education**: Learning about AI-powered investment strategies
+What it does:
 
-## 📈 Future Enhancements
+Collects real-time market prices, historical data, and financial indicators
 
-- Real-time portfolio tracking
-- Advanced visualization charts
-- Mobile app development
-- Integration with brokerage APIs
-- Social trading features
+Ingests news articles and market updates
 
-## 🤝 Contributing
+Structures raw data for downstream agents
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+📌 Ensures all agents operate on reliable and fresh information.
 
-## 📄 License
+3️⃣ Sentiment Analysis Agent
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Purpose: Understand market psychology
 
-## 🆘 Support
+What it does:
 
-For setup help, check SETUP.md or create an issue in the repository.
+Analyzes sentiment from news, headlines, and social media
+
+Detects bullish, bearish, or neutral market signals
+
+Identifies hype, fear, or momentum around specific stocks
+
+📌 Captures the “human emotion” factor often missed by pure analytics.
+
+4️⃣ Technical Analysis Agent
+
+Purpose: Evaluate price behavior and trends
+
+What it does:
+
+Applies indicators like moving averages, RSI, MACD, and volume analysis
+
+Identifies support/resistance levels and trend strength
+
+Flags entry and exit signals
+
+📌 Provides short-term and medium-term trading insights.
+
+5️⃣ Prediction Agent
+
+Purpose: Forecast future price movement
+
+What it does:
+
+Uses machine learning models on historical and technical data
+
+Predicts possible price ranges and trend direction
+
+Supports scenario-based analysis rather than blind predictions
+
+📌 Adds a probabilistic future outlook to the system.
+
+6️⃣ Portfolio Manager Agent
+
+Purpose: Final decision-maker
+
+What it does:
+
+Combines outputs from all previous agents
+
+Aligns recommendations with user risk tolerance and goals
+
+Suggests asset allocation and portfolio composition
+
+📌 Acts like a virtual investment advisor.
+
+🔄 Overall Workflow
+
+User defines risk appetite and investment goals
+
+Company Shortlisting Agent selects candidate stocks
+
+Data Ingestion Agent gathers market and news data
+
+Sentiment, Technical, and Prediction Agents analyze from different perspectives
+
+Portfolio Manager Agent synthesizes everything
+
+Final investment recommendations are generated
+
+🎯 Use Cases
+
+Retail Investors – Smarter, data-driven investing
+
+Finance Students – Understanding real-world investment workflows
+
+FinTech Prototypes – Base architecture for robo-advisors
+
+Research Projects – Multi-agent decision systems in finance
+
+🔮 Future Enhancements
+
+Real-time portfolio performance tracking
+
+Advanced interactive visualizations and charts
+
+Integration with brokerage APIs for execution
+
+Risk stress-testing and scenario simulation
+
+Mobile application support
+
+Social and collaborative investing features
+
+✅ Conclusion
+
+This project demonstrates how multi-agent AI systems can replicate real financial decision-making by breaking complex investment analysis into cooperating intelligent agents.
+
+By combining data ingestion, sentiment analysis, technical indicators, prediction models, and portfolio logic, the system delivers holistic, explainable, and personalized investment insights — far beyond traditional single-model approaches.
