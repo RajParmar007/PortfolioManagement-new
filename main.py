@@ -161,12 +161,20 @@ if __name__ == "__main__":
 
     # Create a dictionary of dictionaries to hold all the results for each company
     final_results = {}
-    for ticker in top_companies: 
+    for ticker in top_companies:
+        # Extract news items for this ticker
+        news_items = []
+        if ticker in ingestion_data and 'news' in ingestion_data[ticker]:
+            for line in ingestion_data[ticker]['news'].strip().split("\n"):
+                if ' - ' in line:
+                    title, url = line.rsplit(' - ', 1)
+                    news_items.append({"title": title.strip(), "url": url.strip()})
+        
         final_results[ticker] = {
             "technical_analysis" : technical_results.get(ticker, {}),
             "sentiment_analysis" : sentiment_results.get(ticker, {}),   
             "prediction_analysis" : prediction_results.get(ticker, {}),
-            
+            "news_data" : news_items
         }
 
     
