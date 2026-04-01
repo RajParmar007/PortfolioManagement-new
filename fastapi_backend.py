@@ -28,6 +28,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Utility function to clean NaN/Inf values for JSON serialization
+def clean_nan_values(obj):
+    """Recursively replace NaN and Inf values with None for JSON serialization"""
+    import math
+    
+    if isinstance(obj, dict):
+        return {key: clean_nan_values(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [clean_nan_values(item) for item in obj]
+    elif isinstance(obj, float):
+        if math.isnan(obj) or math.isinf(obj):
+            return None
+        return obj
+    else:
+        return obj
+
 # Pydantic models for request/response
 class ShortlistRequest(BaseModel):
     sector: str
@@ -50,8 +66,8 @@ class InvestorProfile(BaseModel):
     investment_horizon: str
     preferred_sectors: List[str]
 
-class CompleteAnalysisRequest(BaseModel):
-    sector: str
+class AnalyzeCompaniesRequest(BaseModel):
+    tickers: List[str]
     investor_profile: InvestorProfile
 
 @app.get("/")
@@ -67,7 +83,9 @@ async def health_check():
 async def shortlist_companies(request: ShortlistRequest):
     try:
         result = shortlist_sector(request.sector, top_n=request.top_n)
-        return {"status": "success", "data": result}
+        # Clean NaN values for JSON serialization
+        cleaned_result = clean_nan_values(result)
+        return {"status": "success", "data": cleaned_result}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Shortlisting failed: {str(e)}")
 
@@ -142,23 +160,32 @@ async def get_portfolio_recommendation_endpoint(request: PortfolioRecommendation
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Portfolio recommendation failed: {str(e)}")
 
-# Complete Analysis Workflow
-@app.post("/agents/complete-analysis")
-async def run_complete_analysis(request: CompleteAnalysisRequest):
+# Analyze Selected Companies Workflow
+@app.post("/agents/analyze-companies")
+async def analyze_companies(request: AnalyzeCompaniesRequest):
+    """
+    Run complete analysis on user-selected companies.
+    This maintains the exact LangChain flow from main.py.
+    """
     try:
-        # Step 1: Company Shortlisting
-        shortlist = shortlist_sector(request.sector, top_n=15)
-        companies = json.loads(json.dumps(shortlist, indent=2))
-        top_companies = [c['symbol'] for c in companies][:3]
+        import pandas as pd
         
-        # Step 2: Data Ingestion
+        selected_tickers = request.tickers
+        
+        # Step 1: Data Ingestion
         ingestion_data = {}
-        for ticker in top_companies:
+        for ticker in selected_tickers:
             stock_data_raw = get_stock_data.func(ticker)
             if stock_data_raw.startswith("{"):
                 stock_data = json.loads(stock_data_raw)
             else:
                 stock_data = {}
+
+            # Save stock data to file for prediction agent
+            os.makedirs("data", exist_ok=True)
+            stock_data_path = f"data/{ticker}_stock_data.json"
+            with open(stock_data_path, "w") as f:
+                json.dump(stock_data,f,indent=2)
             
             news_data = get_market_news.func(ticker)
             reddit_data = get_reddit_posts.func(ticker)
@@ -169,7 +196,7 @@ async def run_complete_analysis(request: CompleteAnalysisRequest):
                 "reddit": reddit_data,
             }
         
-        # Step 3: Technical Analysis
+        # Step 2: Technical Analysis
         technical_results = {}
         for ticker, data in ingestion_data.items():
             stock_data = data['stock']
@@ -177,7 +204,6 @@ async def run_complete_analysis(request: CompleteAnalysisRequest):
             stock_data_fixed = {}
             for ts, values in stock_data.items():
                 try:
-                    import pandas as pd
                     dt = pd.to_datetime(int(ts)//1000, unit='s')
                     stock_data_fixed[str(dt.date())] = values
                 except:
@@ -187,7 +213,7 @@ async def run_complete_analysis(request: CompleteAnalysisRequest):
             tech_result = technical_indicators.invoke(input=tech_input)
             technical_results[ticker] = tech_result
         
-        # Step 4: Sentiment Analysis
+        # Step 3: Sentiment Analysis
         sentiment_results = {}
         for ticker, data in ingestion_data.items():
             news_items = []
@@ -205,37 +231,53 @@ async def run_complete_analysis(request: CompleteAnalysisRequest):
             sentiment_result = sentiment_analysis.invoke(input=sentiment_input)
             sentiment_results[ticker] = sentiment_result
         
-        # Step 5: Prediction Analysis
+        # Step 4: Prediction Analysis
         prediction_results = {}
-        for ticker in top_companies:
+        for ticker in selected_tickers:
             prediction_result = get_stock_prediction.func(ticker)
             prediction_results[ticker] = prediction_result
         
-        # Step 6: Portfolio Management
+        # Step 5: Combine Results
         final_results = {}
-        for ticker in top_companies:
+        for ticker in selected_tickers:
+            # Extract news items for this ticker
+            news_items = []
+            if ticker in ingestion_data and 'news' in ingestion_data[ticker]:
+                news_data = ingestion_data[ticker]['news']
+                if isinstance(news_data, str):
+                    for line in news_data.strip().split("\n"):
+                        if ' - ' in line:
+                            title, url = line.rsplit(' - ', 1)
+                            news_items.append({"title": title.strip(), "url": url.strip()})
+            
             final_results[ticker] = {
                 "technical_analysis": technical_results.get(ticker, {}),
                 "sentiment_analysis": sentiment_results.get(ticker, {}),
                 "prediction_analysis": prediction_results.get(ticker, {}),
+                "news_data": news_items
             }
         
+        # Step 6: Portfolio Management / Recommendation
         recommendation = give_stock_recommendation.invoke({"final_results": final_results})
+        
+        # Clean all results for JSON serialization
+        response_data = {
+            "ingestion_data": ingestion_data,
+            "technical_analysis": technical_results,
+            "sentiment_analysis": sentiment_results,
+            "prediction_analysis": prediction_results,
+            "final_results": final_results,
+            "recommendation": recommendation
+        }
+        
+        cleaned_data = clean_nan_values(response_data)
         
         return {
             "status": "success",
-            "data": {
-                "shortlisting": {"companies": companies, "selected": top_companies},
-                "dataIngestion": ingestion_data,
-                "sentimentAnalysis": sentiment_results,
-                "technicalAnalysis": technical_results,
-                "prediction": prediction_results,
-                "portfolioManager": recommendation,
-                "final_results": final_results
-            }
+            "data": cleaned_data
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Complete analysis failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Analysis failed: {str(e)}")
 
 if __name__ == "__main__":
     import uvicorn
